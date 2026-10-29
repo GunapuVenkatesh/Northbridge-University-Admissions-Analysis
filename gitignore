@@ -1,7 +1,47 @@
+
+# Python cache files
 __pycache__/
 *.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+
+# Virtual environments
 .venv/
 venv/
+env/
+
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+
+# Local datasets and applicant information
+data/
+*.csv
+*.xlsx
+*.xls
+
+# Generated analysis results
+pdm_results/
+results/
+*.joblib
+
+# Logs and temporary files
+*.log
+*.tmp
 .DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Python packaging and test artifacts
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
