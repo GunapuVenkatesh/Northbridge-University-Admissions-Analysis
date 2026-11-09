@@ -1,4 +1,3 @@
-
 # Python cache files
 __pycache__/
 *.py[cod]
@@ -23,7 +22,7 @@ data/
 *.xlsx
 *.xls
 
-# Generated analysis results
+# Generated analysis results and saved models
 pdm_results/
 results/
 *.joblib
@@ -38,7 +37,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Python packaging and test artifacts
+# Python packaging and testing artifacts
 build/
 dist/
 *.egg-info/
