@@ -2,23 +2,23 @@
 
 **Project Overview**
 
-This project uses Python-based data analytics and machine learning to analyse 8,000 university applications. It explores historical admissions outcomes, recruiter performance, applicant demographics, and predictive model performance. The analysis aims to identify patterns in admissions decisions and evaluate the effectiveness and fairness of machine learning models.
+This project applies Python-based data analytics and machine learning to analyse 8,000 undergraduate applications received through two recruitment partners. It examines historical admissions outcomes, recruiter performance, applicant demographics and predictive model performance to evaluate the potential of machine learning as an admissions decision-support tool.
 
 **Objectives**
 
 **The main objectives of this project are to:**
 
-* Perform data cleaning and data quality checks.
+* Integrate and clean two recruiter datasets
 
-* Conduct exploratory data analysis (EDA) and data visualisation.
-
-* Compare admission outcomes by recruiter, gender, and ethnicity.
-
-* Train and evaluate Logistic Regression and Random Forest classification models.
-
-* Assess model performance using appropriate evaluation metrics.
-
-* Audit model predictions for potential fairness issues.
+* Conduct exploratory data analysis (EDA) and visualisation.
+  
+* Analyse admissions outcomes by recruiter, gender and ethnicity.
+ 
+* Develop Logistic Regression and Random Forest classification models.
+  
+* Evaluate predictive performance using appropriate metrics
+  
+* Assess potential demographic fairness issues.
 
 **Technologies Used**
 
@@ -34,92 +34,85 @@ This project uses Python-based data analytics and machine learning to analyse 8,
 
 * Model Persistence: Joblib
 
-* Development Environment: Jupyter Notebook
+* Development Environment: Google Colab / Jupyter Notebook
+
+**Dataset Description**
+
+The project uses two datasets: recruiter_A.csv, containing 4,000 applications, and recruiter_B.xlsx, containing another 4,000 applications. The combined dataset contains 8,000 application records.
+
+The target variable is admission_outcome, where 1 represents an offer and 0 represents no offer. Four predictors were used for modelling: prior attainment score, admissions test score, personal statement score and intended subject area. Demographic variables were retained for fairness analysis.
 
 **Key Findings**
 
-The analysis examined 8,000 university applications to understand historical admissions outcomes and evaluate the performance of two machine learning models.
+* Total applications analysed: 8,000.
 
-**The main findings are:**
+* Historical offers: 4,850 (60.62%).
 
-* Total applications analysed: A total of 8,000 applications were included in the analysis.
+* Historical non-offers: 3,150 (39.38%).
 
-* Historical offers: Out of these applications, 4,850 resulted in offers.
+* Recruiter A offer rate: 59.88%.
 
-* Overall offer rate: The historical offer rate was 60.62%, meaning that approximately three-fifths of the applications resulted in offers.
+* Recruiter B offer rate: 61.38%.
 
-* Logistic Regression performance: The model achieved a ROC-AUC score of 0.573.
+* Correlation between academic scores: 0.014.
 
-* Random Forest performance: The model also achieved a ROC-AUC score of 0.573.
+Logistic Regression achieved 61.38% accuracy and a ROC-AUC of 0.573, while Random Forest achieved 59.88% accuracy and a ROC-AUC of 0.557. Logistic Regression performed comparatively better across most evaluation metrics. However, both models demonstrated limited predictive discrimination.
 
-Both models demonstrated limited ability to distinguish between applications that resulted in offers and those that did not. Their identical ROC-AUC scores indicate that neither model performed better than the other according to this evaluation metric.
-
-These findings suggest that further investigation into feature selection, data quality, model configuration, and predictive performance is necessary before either model can be considered for practical admissions decision support.
 
 **Project Workflow**
 
-**The project follows a structured analytical workflow:**
+* Data loading and integration.
 
-* Data Quality Assessment: Examine missing values, duplicate records, data types, and data consistency.
+* Data cleaning and validation.
 
-* Exploratory Data Analysis: Investigate application patterns, historical offer rates, recruiter outcomes, and applicant demographic distributions.
+* Exploratory data analysis and visualisation.
 
-* Feature Preparation: Prepare relevant variables for predictive modelling.
+* Feature preprocessing.
 
-* Model Development: Train Logistic Regression and Random Forest classification models.
+* Logistic Regression and Random Forest model development.
 
-* Model Evaluation: Assess predictive performance using classification metrics and visualisations.
+* Model performance evaluation.
 
-* Fairness Auditing: Examine potential differences in admissions outcomes and model predictions across relevant demographic groups.
+* Demographic fairness assessment.
 
-* Results Export: Export key analytical results and save model artefacts where supported by the notebook.
+* Model saving and results export.
 
 **Repository Contents**
 
-**The repository contains the following files:**
+* Northbridge_University_Admissions_Analysis.ipynb – Main notebook containing data preparation, EDA, visualisations, modelling and evaluation.
 
-* Northbridge_University_Admissions_Analysis.ipynb — The Jupyter Notebook containing data preparation, exploratory analysis, visualisations, predictive modelling, and model evaluation.
+* README.md – Project documentation.
 
-* README.md — Project documentation, including the overview, objectives, findings, and instructions.
+* requirements.txt – Required Python packages.
 
-* .gitignore — Specifies files and directories that should be excluded from Git tracking.
+* gitignore – Specifies files excluded from Git tracking.
 
-* requirements.txt — Lists the Python packages required to run the project.
+* recruiter_A.csv and recruiter_B.xlsx – Input datasets, where sharing is permitted.
 
 **How to Run the Project**
-
-**1. Install Dependencies**
-
-Install the required Python packages using pip:
-
+* Install dependencies
+  
 pip install pandas numpy matplotlib seaborn scikit-learn joblib jupyter openpyxl
 
-**2. Open the Notebook**
-
-Launch Jupyter Notebook from your terminal:
-
+* Open the notebook
+  
 jupyter notebook
 
-Open Northbridge_University_Admissions_Analysis.ipynb and execute the notebook cells sequentially.
-
-Alternatively, upload the notebook to Google Colab and run it in the cloud-based environment.
-
-**3. Provide the Input Datasets**
-
-Ensure that the required Recruiter A CSV dataset and Recruiter B Excel dataset are available. If the notebook prompts for file uploads, provide the corresponding datasets and follow the data-loading instructions.
+* Run the analysis
+  
+Open Northbridge_University_Admissions_Analysis.ipynb, provide both datasets and execute the notebook cells sequentially. Alternatively, upload the notebook to Google Colab.
 
 **Limitations and Responsible Use**
 
-The models predict historical admissions decisions rather than future academic success. Both models achieved a ROC-AUC score of 0.573, indicating limited predictive discrimination between offered and non-offered applications.
+Both models demonstrated limited predictive performance, with ROC-AUC scores below 0.58. The fairness assessment also identified substantial false-positive rates across demographic groups. Therefore, the models are not currently suitable for automated admissions decisions.
 
-The results should therefore be interpreted cautiously. Further investigation is required into data quality, class distributions, feature selection, model performance, and potential demographic bias.
+Further improvements in data quality, model validation, fairness monitoring, transparency and human oversight are necessary before operational implementation.
 
-Admissions predictions should not be treated as definitive recommendations or used as the sole basis for decisions affecting applicants. Human oversight, data privacy, transparency, and appropriate fairness assessments are essential before considering operational use.
-
-**Author**
-
+**Project Information**
 * Project: Northbridge University Admissions Analysis
 
 * Domain: Data Analytics and Machine Learning
 
-This project is intended for educational and analytical purposes only.
+* Models: Logistic Regression and Random Forest
+
+* Purpose: Educational and analytical research
